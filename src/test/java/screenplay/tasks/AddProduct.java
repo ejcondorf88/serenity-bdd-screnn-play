@@ -19,53 +19,52 @@ import java.time.Duration;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class AddProduct implements Task {
-    
+
     private final Product product;
-    
+
     public AddProduct(Product product) {
         this.product = product;
     }
-    
+
     public static AddProduct toCart(Product product) {
         return new AddProduct(product);
     }
-    
-    // Para backwards compatibility con String
+
     public static AddProduct toCart(String productId) {
-        Product product = findProductById(productId);
-        return new AddProduct(product);
+        return new AddProduct(findProductById(productId));
     }
-    
+
     @Override
     public <T extends Actor> void performAs(T actor) {
-        // Remove banner first
         actor.attemptsTo(RemoveBitnamiBanner.now());
-        
+
         Target addButton = Target.the("Add to cart button for " + product.getName())
             .locatedBy("//button[contains(@onclick,\"cart.add('" + product.getId() + "')\")]");
-        
+
         actor.attemptsTo(
             WaitUntil.the(addButton, isVisible()).forNoMoreThan(10).seconds()
         );
-        
+
         WebDriver driver = BrowseTheWeb.as(actor).getDriver();
-        WebElement button = driver.findElement(By.xpath("//button[contains(@onclick,\"cart.add('" + product.getId() + "')\")]"));
+        WebElement button = driver.findElement(By.xpath(
+            "//button[contains(@onclick,\"cart.add('" + product.getId() + "')\")]"
+        ));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", button);
         js.executeScript("arguments[0].click();", button);
-        
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.not(
             ExpectedConditions.textToBe(By.id("cart-total"), "0 item(s) - $0.00")
         ));
-        
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
-    
+
     private static Product findProductById(String productId) {
         switch (productId) {
             case "43": return Product.macBook();

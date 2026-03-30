@@ -19,8 +19,6 @@ import static org.hamcrest.Matchers.*;
 
 public class CompraInvitadoStepDefinitions {
 
-    private UserData userData;
-
     @Given("que el usuario esta en la pagina principal de la tienda")
     public void que_el_usuario_esta_en_la_pagina_principal_de_la_tienda() {
         Actor actor = theActorCalled("Guest User");
@@ -67,8 +65,7 @@ public class CompraInvitadoStepDefinitions {
 
     @And("completa el formulario de informacion personal con:")
     public void completa_el_formulario_de_informacion_personal_con(DataTable dataTable) {
-        // Usando el Builder pattern para crear UserData
-        userData = new UserData.Builder()
+        UserData userData = new UserData.Builder()
             .withFirstName("Juan")
             .withLastName("Perez")
             .withEmail("juan@test.com")
@@ -79,7 +76,7 @@ public class CompraInvitadoStepDefinitions {
             .withCountry("Mexico")
             .withRegion("Mexico City")
             .build();
-        
+
         theActorCalled("Guest User").attemptsTo(
             FillPersonalInformation.withData(userData)
         );
