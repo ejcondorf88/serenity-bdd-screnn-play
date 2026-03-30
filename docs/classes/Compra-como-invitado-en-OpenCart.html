@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class Compra como invitado en OpenCart</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class Compra como invitado en OpenCart</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; Compra como invitado en OpenCart</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">51.907s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+<li>
+<a href="#">Standard error</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Realizar una compra exitosa como invitado</td>
+<td class="success">51.907s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre id="class-stdout">
+@e2e @compra @regression @critical @smoke @happy-path
+Scenario: Realizar una compra exitosa como invitado                              ?[90m# src/test/resources/features/compra_invitado.feature:7?[0m
+  ?[32mGiven ?[0m?[32mque el usuario esta en la pagina principal de la tienda?[0m                  ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.que_el_usuario_esta_en_la_pagina_principal_de_la_tienda()?[0m
+  ?[32mWhen ?[0m?[32magrega el producto ?[0m?[32m?[1m&quot;iPhone&quot;?[0m?[32m al carrito?[0m                                    ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.agrega_el_producto_al_carrito(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32magrega el producto ?[0m?[32m?[1m&quot;MacBook&quot;?[0m?[32m al carrito?[0m                                    ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.agrega_el_producto_al_carrito(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mnavega al carrito de compras?[0m                                               ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.navega_al_carrito_de_compras()?[0m
+  ?[32mThen ?[0m?[32mdeberia visualizar los productos en el carrito:?[0m                           ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.deberia_visualizar_los_productos_en_el_carrito(io.cucumber.datatable.DataTable)?[0m
+    | Producto | Cantidad |
+    | iPhone   | 1        |
+    | MacBook  | 1        |
+  ?[32mWhen ?[0m?[32mprocede al checkout?[0m                                                       ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.procede_al_checkout()?[0m
+  ?[32mAnd ?[0m?[32mselecciona la opcion Guest Checkout?[0m                                        ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.selecciona_la_opcion_guest_checkout()?[0m
+  ?[32mAnd ?[0m?[32mcompleta el formulario de informacion personal con:?[0m                        ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.completa_el_formulario_de_informacion_personal_con(io.cucumber.datatable.DataTable)?[0m
+    | Campo        | Valor            |
+    | First Name   | Juan             |
+    | Last Name    | Perez            |
+    | Email        | juan@test.com    |
+    | Telephone    | 5551234567       |
+    | Address 1    | Calle Falsa 123  |
+    | City         | Ciudad de Mexico |
+    | Post Code    | 01000            |
+    | Country      | Mexico           |
+    | Region/State | Ciudad de Mexico |
+  ?[32mAnd ?[0m?[32mselecciona el metodo de envio?[0m                                              ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.selecciona_el_metodo_de_envio()?[0m
+  ?[32mAnd ?[0m?[32macepta los terminos y condiciones?[0m                                          ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.acepta_los_terminos_y_condiciones()?[0m
+  ?[32mAnd ?[0m?[32mconfirma la orden?[0m                                                          ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.confirma_la_orden()?[0m
+  ?[32mThen ?[0m?[32mdeberia visualizar el mensaje de confirmacion Your order has been placed!?[0m ?[90m# screenplay.stepdefinitions.CompraInvitadoStepDefinitions.deberia_visualizar_el_mensaje_de_confirmacion()?[0m
+</pre>
+<button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="class-stdout">Copy</button>
+</span>
+</div>
+<div class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre id="class-stderr">mar. 30, 2026 1:28:05 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTENCIA: Unable to find CDP implementation matching 146
+mar. 30, 2026 1:28:05 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTENCIA: Unable to find version of CDP to use for 146.0.7680.165. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.26.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+</pre>
+<button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="class-stderr">Copy</button>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 9.2.1</a> at 30 mar. 2026 1:28:56 p. m.</p>
+</div>
+</div>
+</body>
+</html>
